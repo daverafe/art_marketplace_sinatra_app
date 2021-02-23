@@ -1,0 +1,2 @@
+class ArtPostsController < ApplicationController
+end
