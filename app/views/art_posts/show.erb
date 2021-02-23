@@ -2,5 +2,10 @@
 
 <p><%=@art_post.description%></p>
 <p>$<%=@art_post.price%></p>
+<p><a href="/art_posts/<%=@art_post.id%>/edit"><input type="submit" value="Edit Art Post"</a></p>
+<form action="/art_posts/<%=@art_post.id%>" method="post">
+<input type="hidden" name="_method" value="delete">
+    <p><input type="submit" value="Delete Art Post"></p>
+</form>
 
 <a href="/art_posts">View All Art Posts</a>
