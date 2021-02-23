@@ -9,7 +9,7 @@ class ArtPostsController < ApplicationController
     end
 
     post '/art_posts' do 
-        @art_post = ArtPost.create(params)
+        @art_post = ArtPost.create(title: params[:title], description: params[:description], price: params[:price].to_i)
         redirect "/art_posts/#{@art_post.id}"
     end
 
