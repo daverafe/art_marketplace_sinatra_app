@@ -8,8 +8,10 @@ class SellersController < ApplicationController
         seller.save 
         if seller.save 
             session[:seller_id] = seller.id 
+            flash[:message] = "Login Successful!"
             redirect '/art_posts'
         else
+            flash[:error] = "Incorrect signup input. Please try again."
             redirect '/signup'
         end
     end
@@ -22,14 +24,17 @@ class SellersController < ApplicationController
         seller = Seller.find_by_username(params[:username])
         if seller && seller.authenticate(params[:password])
             session[:seller_id] = seller.id 
+            flash[:message] = "Login Successful!"
             redirect '/art_posts'
         else
+            flash[:error] = "Invalid Login"
             redirect '/login'
         end
     end
 
     get '/logout' do
-        session.clear 
+        session.clear
+        flash[:message] = "Logged out" 
         redirect '/'
     end
 end
