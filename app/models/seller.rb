@@ -1,4 +1,5 @@
 class Seller < ActiveRecord::Base
-    has_many :art_posts 
     has_secure_password 
+    has_many :art_posts 
+    validates :email, :username, :password, presence: true
 end

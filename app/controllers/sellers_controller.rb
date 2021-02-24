@@ -5,12 +5,12 @@ class SellersController < ApplicationController
 
     post '/signup' do 
         seller = Seller.new(params)
-        if seller.email.blank? || seller.username.blank? || seller.password.blank? || Seller.find_by_email(params[:email]) || Seller.find_by_username(params[:username])
-            redirect '/signup'
-        else
-            seller.save
+        seller.save 
+        if seller.save 
             session[:seller_id] = seller.id 
             redirect '/art_posts'
+        else
+            redirect '/signup'
         end
     end
 
@@ -20,6 +20,12 @@ class SellersController < ApplicationController
 
     post '/login' do 
         seller = Seller.find_by_username(params[:username])
+        if seller && seller.authenticate(params[:password])
+            session[:seller_id] = seller.id 
+            redirect '/art_posts'
+        else
+            redirect '/login'
+        end
     end
 
     get '/logout' do
