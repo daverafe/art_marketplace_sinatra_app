@@ -8,8 +8,8 @@ class ArtPostsController < ApplicationController
         erb :'art_posts/new'
     end
 
-    post '/art_posts' do 
-        @art_post = ArtPost.create(title: params[:title], description: params[:description], price: params[:price].to_i)
+    post '/art_posts' do
+        @art_post = ArtPost.create(params)
         redirect "/art_posts/#{@art_post.id}"
     end
 
