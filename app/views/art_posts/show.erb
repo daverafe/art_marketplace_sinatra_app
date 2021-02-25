@@ -1,5 +1,7 @@
 <h2><%=@art_post.title%></h2>
 
+<img src="<%=@art_post.img_url%>">
+
 <p><%=@art_post.description%></p>
 <p>$<%=@art_post.price%></p>
 <% if current_user == @art_post.seller %>
