@@ -4,8 +4,12 @@ class ArtPostsController < ApplicationController
         erb :'art_posts/index'
     end
 
-    get '/art_posts/new' do 
-        erb :'art_posts/new'
+    get '/art_posts/new' do
+        if logged_in? 
+            erb :'art_posts/new'
+        else
+            redirect '/'
+        end
     end
 
     post '/art_posts' do

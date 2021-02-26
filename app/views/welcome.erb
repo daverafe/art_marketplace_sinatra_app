@@ -1,6 +1,10 @@
 <h1>Welcome To Brooklyn Art Market!</h1>
 <h3>An Indy Art Shop</h3>
 
-<p><a href="/signup"><input type="submit" value="Signup"</a></p>
-<p><a href="/login"><input type="submit" value="Login"</a></p>
-<p><a href="/logout"><input type="submit" value="Logout"</a></p>
+<% if !logged_in? %>
+    <p><a href="/signup"><input type="submit" value="Signup"</a></p>
+    <p><a href="/login"><input type="submit" value="Login"</a></p>
+<% else %>
+    <p><a href="/art_posts"><input type="submit" value="Click to view the art"</a></p>
+<% end %>
+
