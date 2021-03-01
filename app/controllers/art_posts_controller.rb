@@ -39,7 +39,7 @@ class ArtPostsController < ApplicationController
     patch '/art_posts/:id' do 
         get_art_post
         redirect_if_not_authorized
-        @art_post.update(title: params[:title], description: params[:description], price: params[:price].to_i)
+        @art_post.update(title: params[:title], img_url: params[:img_url], description: params[:description], price: params[:price].to_i)
         redirect "/art_posts/#{@art_post.id}"
     end
 
@@ -57,7 +57,7 @@ private
     end
 
     def redirect_if_not_authorized
-        if @art_post.seller != current_user
+        if @art_post.seller != current_seller 
             flash[:error] = "You do not have permission to make changes"
             redirect '/art_posts'
         end

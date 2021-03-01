@@ -4,7 +4,7 @@
 
 <p><%=@art_post.description%></p>
 <p>$<%=@art_post.price%></p>
-<% if current_user == @art_post.seller %>
+<% if current_seller == @art_post.seller %>
     <p><a href="/art_posts/<%=@art_post.id%>/edit"><input type="submit" value="Edit Art Post"</a></p>
     <form action="/art_posts/<%=@art_post.id%>" method="post">
         <input type="hidden" name="_method" value="delete">
