@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_01_223200) do
+ActiveRecord::Schema.define(version: 2021_03_01_223835) do
 
   create_table "art_posts", force: :cascade do |t|
     t.string "title"
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2021_03_01_223200) do
     t.integer "price"
     t.integer "seller_id"
     t.string "img_url"
+    t.integer "buyer_id"
   end
 
   create_table "buyers", force: :cascade do |t|
