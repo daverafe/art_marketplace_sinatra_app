@@ -22,16 +22,16 @@ class BuyersController < ApplicationController
 
     get '/login' do
         if !logged_in? 
-            erb :'sellers/login'
+            erb :'buyers/login'
         else
             redirect '/art_posts'
         end
     end
 
     post '/login' do 
-        seller = Seller.find_by_username(params[:username])
-        if seller && seller.authenticate(params[:password])
-            session[:seller_id] = seller.id 
+        buyer = Buyer.find_by_username(params[:username])
+        if buyer && buyer.authenticate(params[:password])
+            session[:buyer_id] = buyer.id 
             flash[:message] = "Login Successful!"
             redirect '/art_posts'
         else

@@ -16,8 +16,12 @@ class ApplicationController < Sinatra::Base
 
   helpers do 
     
-    def current_user 
-     @current_user ||= Seller.find_by_id(session[:seller_id])
+    def current_seller 
+     @current_seller ||= Seller.find_by_id(session[:seller_id])
+    end
+    
+    def current_buyer 
+      @current_buyer ||= Buyer.find_by_id(session[:buyer_id])
     end
 
     def logged_in?
