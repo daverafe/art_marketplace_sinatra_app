@@ -1,9 +1,19 @@
 <h1>The Art</h1>
 <% @art_posts.each do |art| %>
-    <img src="<%=art.img_url%>">
-    <p><a href="/art_posts/<%=art.id%>"><%=art.title%></a></p>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <div class="card" style="width: 18rem;">
+                    <img src="<%=art.img_url%>" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title"><%=art.title%></h5>
+                        <a href="/art_posts/<%=art.id%>" class="btn btn-primary">Click for more info</a>
+                    </div>
+                </div>   
+            </div>
+        </div>
+    </div>
 <% end %>
 
-<a href="/art_posts/new">Create New Art Post</a>
-<p><a href="/logout"><input type="submit" value="Logout"</a></p>
 
+    

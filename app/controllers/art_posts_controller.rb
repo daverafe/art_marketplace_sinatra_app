@@ -1,13 +1,19 @@
 class ArtPostsController < ApplicationController
     get '/art_posts' do
         @art_posts = ArtPost.all 
-        erb :'art_posts/index'
+        if logged_in? 
+            erb :'art_posts/index'
+        else
+            flash[:error] = "Sorry you have to be logged in to do that"
+            redirect '/'
+        end
     end
 
     get '/art_posts/new' do
         if logged_in? 
             erb :'art_posts/new'
         else
+            flash[:error] = "Sorry you have to be logged in to do that"
             redirect '/'
         end
     end
