@@ -14,6 +14,14 @@ class ApplicationController < Sinatra::Base
     erb :welcome
   end
 
+  get '/signup' do
+    if !logged_in? 
+      erb :signup 
+    else
+      redirect '/art_posts'
+    end
+  end
+
   helpers do 
     
     def current_seller 

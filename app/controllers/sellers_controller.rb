@@ -1,5 +1,5 @@
 class SellersController < ApplicationController
-    get '/signup' do 
+    get '/sellers/signup' do 
         if !logged_in? 
             erb :'sellers/signup'
         else
@@ -7,7 +7,7 @@ class SellersController < ApplicationController
         end
     end
 
-    post '/signup' do 
+    post '/sellers/signup' do 
         seller = Seller.new(params)
         seller.save 
         if seller.save 
@@ -20,7 +20,7 @@ class SellersController < ApplicationController
         end
     end
 
-    get '/login' do
+    get '/sellers/login' do
         if !logged_in? 
             erb :'sellers/login'
         else
@@ -28,7 +28,7 @@ class SellersController < ApplicationController
         end
     end
 
-    post '/login' do 
+    post '/sellers/login' do 
         seller = Seller.find_by_username(params[:username])
         if seller && seller.authenticate(params[:password])
             session[:seller_id] = seller.id 
@@ -40,7 +40,7 @@ class SellersController < ApplicationController
         end
     end
 
-    get '/logout' do
+    get '/sellers/logout' do
         session.clear
         flash[:message] = "Logged out" 
         redirect '/'

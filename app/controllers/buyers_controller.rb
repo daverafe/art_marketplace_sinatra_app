@@ -1,5 +1,5 @@
 class BuyersController < ApplicationController
-    get '/signup' do 
+    get '/buyers/signup' do 
         if !logged_in? 
             erb :'buyers/signup'
         else
@@ -7,7 +7,7 @@ class BuyersController < ApplicationController
         end
     end
 
-    post '/signup' do 
+    post '/buyers/signup' do 
         buyer = Buyer.new(params)
         buyer.save 
         if buyer.save 
@@ -20,7 +20,7 @@ class BuyersController < ApplicationController
         end
     end
 
-    get '/login' do
+    get '/buyers/login' do
         if !logged_in? 
             erb :'buyers/login'
         else
@@ -28,7 +28,7 @@ class BuyersController < ApplicationController
         end
     end
 
-    post '/login' do 
+    post '/buyers/login' do 
         buyer = Buyer.find_by_username(params[:username])
         if buyer && buyer.authenticate(params[:password])
             session[:buyer_id] = buyer.id 
@@ -40,7 +40,7 @@ class BuyersController < ApplicationController
         end
     end
 
-    get '/logout' do
+    get '/buyers/logout' do
         session.clear
         flash[:message] = "Logged out" 
         redirect '/'
