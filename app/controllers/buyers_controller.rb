@@ -40,6 +40,19 @@ class BuyersController < ApplicationController
         end
     end
 
+    get '/buyers/cart' do 
+        @buyers_art_posts = current_buyer.art_posts
+        erb :'buyers/save'
+    end
+
+    post '/buyers/cart' do 
+        art_post = ArtPost.find_by_id(params[:id])
+        art_post.buyer_id = session[:buyer_id]
+        art_post.save
+        flash[:message] = "Added to cart!"
+        redirect '/art_posts' 
+    end
+
     get '/buyers/logout' do
         session.clear
         flash[:message] = "Logged out" 

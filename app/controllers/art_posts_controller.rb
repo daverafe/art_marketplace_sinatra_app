@@ -10,7 +10,7 @@ class ArtPostsController < ApplicationController
     end
 
     get '/art_posts/new' do
-        if !seller_logged_in? || !buyer_logged_in?
+        if !seller_logged_in?
             flash[:error] = "Sorry you have to be logged in to do that"
             redirect '/'
         elsif current_buyer
