@@ -1,6 +1,6 @@
 class BuyersController < ApplicationController
     get '/buyers/signup' do 
-        if !logged_in? 
+        if !buyer_logged_in? 
             erb :'buyers/signup'
         else
             redirect '/art_posts'
@@ -21,7 +21,7 @@ class BuyersController < ApplicationController
     end
 
     get '/buyers/login' do
-        if !logged_in? 
+        if !buyer_logged_in? 
             erb :'buyers/login'
         else
             redirect '/art_posts'

@@ -1,6 +1,6 @@
 class SellersController < ApplicationController
     get '/sellers/signup' do 
-        if !logged_in? 
+        if !seller_logged_in? 
             erb :'sellers/signup'
         else
             redirect '/art_posts'
@@ -21,7 +21,7 @@ class SellersController < ApplicationController
     end
 
     get '/sellers/login' do
-        if !logged_in? 
+        if !seller_logged_in? 
             erb :'sellers/login'
         else
             redirect '/art_posts'

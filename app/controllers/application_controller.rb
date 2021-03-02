@@ -15,7 +15,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/signup' do
-    if !logged_in? 
+    if !seller_logged_in? || !buyer_logged_in?
       erb :signup 
     else
       redirect '/art_posts'
@@ -32,8 +32,12 @@ class ApplicationController < Sinatra::Base
       @current_buyer ||= Buyer.find_by_id(session[:buyer_id])
     end
 
-    def logged_in?
+    def seller_logged_in?
       !!session[:seller_id]
+    end
+
+    def buyer_logged_in?
+      !!session[:buyer_id]
     end
 
   end

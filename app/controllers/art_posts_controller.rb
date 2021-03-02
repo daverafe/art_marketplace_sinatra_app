@@ -1,7 +1,7 @@
 class ArtPostsController < ApplicationController
     get '/art_posts' do
         @art_posts = ArtPost.all 
-        if logged_in? 
+        if seller_logged_in? || buyer_logged_in?
             erb :'art_posts/index'
         else
             flash[:error] = "Sorry you have to be logged in to do that"
@@ -10,7 +10,7 @@ class ArtPostsController < ApplicationController
     end
 
     get '/art_posts/new' do
-        if !logged_in?
+        if !seller_logged_in? || !buyer_logged_in?
             flash[:error] = "Sorry you have to be logged in to do that"
             redirect '/'
         elsif current_buyer
