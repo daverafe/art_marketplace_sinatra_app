@@ -5,14 +5,18 @@
 <p><%=@art_post.description%></p>
 <p>$<%=@art_post.price%></p>
 <% if  seller_logged_in? && current_seller == @art_post.seller %>
-    <p><a href="/art_posts/<%=@art_post.id%>/edit"><input type="submit" value="Edit Art Post"</a></p>
-    <form action="/art_posts/<%=@art_post.id%>" method="post">
-        <input type="hidden" name="_method" value="delete">
-        <p><input type="submit" value="Delete Art Post"></p>
-    </form>
+    <div class="row">
+        <div class="col">
+            <a href="/art_posts/<%=@art_post.id%>/edit"><button type="button" class="btn btn-primary">Edit</button></a> 
+            <form action="/art_posts/<%=@art_post.id%>" method="post">
+            <input type="hidden" name="_method" value="delete">
+            <button type="submit" class="btn btn-danger">Delete</button> 
+            </form>
+        </div>
+    </div>
 <% elsif current_buyer %>
-    <form action="/buyers/save" method="post">
-        <input type="submit" value="Save">
+    <form action="/buyers/cart" method="post">
+        <button type="submit" class="btn btn-primary" name="buyer[cart][]" value="<%= @art_post %>">Add to Cart</button> 
     </form>
 <% end %>
 

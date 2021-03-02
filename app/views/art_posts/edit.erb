@@ -1,10 +1,21 @@
 <h1>Edit An Art Post</h1>
 
-<form action="/art_posts/<%=@art_post.id%>" method="post">
-<input type="hidden" name="_method" value="patch">
-   <p> Title: <input type="text" name="title" value="<%=@art_post.title%>"></p>
-   <p> Image URL: <input type="text" name="img_url" value="<%=@art_post.img_url%>"></p>
-   <p> Description: <textarea name="description"><%=@art_post.description%></textarea></p>
-   <p> Price: <input type="number" name="price" value="<%=@art_post.price%>"></p>
-    <input type="submit" value="Edit Art Post">
-</form>
+
+<div id="form" class="container">
+  <form action="/art_posts/<%=@art_post.id%>" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <div class="row">
+    <div class="col">
+      <label for="exampleInputEmail1" class="form-label">Title</label>
+      <input type="text" name="title" class="form-control" value="<%=@art_post.title%>">
+      <label for="exampleInputEmail1" class="form-label">Image URL</label>
+      <input type="text" name="img_url" class="form-control" value="<%=@art_post.img_url%>">
+      <label for="exampleInputPassword1" class="form-label">Description</label>
+      <textarea name="description" class="form-control"><%=@art_post.description%></textarea>      
+      <label for="exampleInputPassword1" class="form-label">Price</label>
+      <input type="number" name="price" class="form-control" value="<%=@art_post.price%>">
+    </div>
+  </div>  
+  <button type="submit" class="btn btn-primary">Edit Art Post</button> 
+  </form>
+</div>

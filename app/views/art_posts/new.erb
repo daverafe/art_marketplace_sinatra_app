@@ -1,9 +1,20 @@
 <h1>Create A New Art Post</h1>
 
-<form action="/art_posts" method="post">
-   <p> Title: <input type="text" name="title"></p>
-   <p> Image URL: <input type="text" name="img_url"></p>
-   <p> Description: <textarea name="description"></textarea></p>
-   <p> Price: <input type="number" name="price"></p>
-    <input type="submit" value="Create Art Post">
-</form>
+
+<div id="form" class="container">
+  <form action="/art_posts" method="post">
+  <div class="row">
+    <div class="col">
+      <label for="exampleInputEmail1" class="form-label">Title</label>
+      <input type="text" name="title" class="form-control">
+      <label for="exampleInputEmail1" class="form-label">Image URL</label>
+      <input type="text" name="img_url" class="form-control">
+      <label for="exampleInputPassword1" class="form-label">Description</label>
+      <textarea name="description" class="form-control"></textarea>      
+      <label for="exampleInputPassword1" class="form-label">Price</label>
+      <input type="number" name="price" class="form-control">
+    </div>
+  </div>  
+  <button type="submit" class="btn btn-primary">Create Art Post</button> 
+  </form>
+</div>

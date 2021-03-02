@@ -1,7 +1,16 @@
 <h1>Login To Buy</h1>
 
-<form action="/buyers/login" method="post">
-   Username: <p><input type="text" name="username"></p>
-   Password: <p><input type="password" name="password"></p>
-   <p><input type="submit" value="Login"></p>
-</form>
+
+<div id="form" class="container">
+  <form action="/buyers/login" method="post">
+  <div class="row">
+    <div class="col">
+      <label for="exampleInputEmail1" class="form-label">Username</label>
+      <input type="text" name="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+    </div>
+  </div>  
+  <button type="submit" class="btn btn-primary">Login</button> 
+  </form>
+</div>

@@ -41,14 +41,13 @@ class BuyersController < ApplicationController
     end
 
     get '/buyers/cart' do 
-        @buyers_art_posts = current_buyer.art_posts
-        erb :'buyers/save'
+        @buyers_art_posts = current_buyer.cart 
+        erb :'buyers/cart'
     end
 
     post '/buyers/cart' do 
-        art_post = ArtPost.find_by_id(params[:id])
-        art_post.buyer_id = session[:buyer_id]
-        art_post.save
+        binding.pry 
+        current_buyer.cart = params[:buyer][:cart]        
         flash[:message] = "Added to cart!"
         redirect '/art_posts' 
     end
