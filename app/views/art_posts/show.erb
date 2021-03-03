@@ -16,7 +16,7 @@
     </div>
 <% elsif current_buyer %>
     <form action="/buyers/cart" method="post">
-        <button type="submit" class="btn btn-primary" name="cart" value="<%= @art_post.id %>">Add to Cart</button> 
+        <button type="submit" class="btn btn-primary" name="cart_id" value="<%= @art_post.id %>">Add to Cart</button> 
     </form>
 <% end %>
 

@@ -1,19 +1,19 @@
 <h1>The Art</h1>
-<% @art_posts.each do |art| %>
-    <div class="container">
-        <div class="row">
-            <div class="col-sm">
-                <div class="card" style="width: 18rem;">
-                    <img src="<%=art.img_url%>" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title"><%=art.title%></h5>
-                        <a href="/art_posts/<%=art.id%>" class="btn btn-primary">Click for more info</a>
-                    </div>
-                </div>   
-            </div>
+<div class="container">
+    <div class="row">
+    <% @art_posts.each do |art| %>
+        <div class="col-sm">
+            <div class="card" style="width: 18rem;">
+                <img src="<%=art.img_url%>" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title"><%=art.title%></h5>
+                    <a href="/art_posts/<%=art.id%>" class="btn btn-primary">Click for more info</a>
+                </div>
+            </div>   
         </div>
+    <% end %>
     </div>
-<% end %>
+</div>
 
 
     

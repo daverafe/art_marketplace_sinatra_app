@@ -47,7 +47,7 @@ class BuyersController < ApplicationController
     end
 
     post '/buyers/cart' do 
-        @art_post = ArtPost.find_by_id(params[:cart])
+        @art_post = ArtPost.find_by_id(params[:cart_id])
         current_buyer.cart << @art_post
         @art_post.buyer_id = session[:buyer_id]
         @art_post.save 
