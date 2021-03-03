@@ -41,13 +41,16 @@ class BuyersController < ApplicationController
     end
 
     get '/buyers/cart' do 
-        @buyers_art_posts = current_buyer.cart 
+        @art_post = ArtPost.find_by_buyer_id(session[:buyer_id])
+        @buyers_cart = current_buyer.cart << @art_post
         erb :'buyers/cart'
     end
 
     post '/buyers/cart' do 
-        binding.pry 
-        current_buyer.cart = params[:buyer][:cart]        
+        @art_post = ArtPost.find_by_id(params[:cart])
+        current_buyer.cart << @art_post
+        @art_post.buyer_id = session[:buyer_id]
+        @art_post.save 
         flash[:message] = "Added to cart!"
         redirect '/art_posts' 
     end
@@ -57,4 +60,5 @@ class BuyersController < ApplicationController
         flash[:message] = "Logged out" 
         redirect '/'
     end
+
 end

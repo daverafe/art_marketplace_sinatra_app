@@ -2,10 +2,15 @@
 <h3>An Indy Art Shop</h3>
 
 <% if !seller_logged_in? || !buyer_logged_in? %>
-    <a href="/buyers/login"><button type="button" class="btn btn-primary">Login To Buy</button></a> 
-    <a href="/sellers/login"><button type="button" class="btn btn-primary">Login To Sell</button></a> 
+    <div id="landing" class="container">
+        <div>
+            <a href="/buyers/login"><button type="button" class="btn btn-primary">Login To Buy</button></a> 
+            <a href="/sellers/login"><button type="button" class="btn btn-primary">Login To Sell</button></a> 
+        </div>
 
-    <a href="/signup">Create An Account</a> 
+        <a href="/signup">Create An Account</a> 
+    </div>
+    
 <% end %> 
 
 
