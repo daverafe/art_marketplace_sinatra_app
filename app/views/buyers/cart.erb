@@ -1,7 +1,7 @@
 <h1>Your Cart</h1>
-<% @cart.each do |cart_art| %>
     <div class="container">
         <div class="row">
+        <% @cart.each do |cart_art| %>
             <div class="col-sm">
                 <div class="card" style="width: 18rem;">
                     <img src="<%=cart_art.img_url%>" class="card-img-top" alt="...">
@@ -11,6 +11,6 @@
                     </div>
                 </div>   
             </div>
+        <% end %>
         </div>
     </div>
-<% end %>

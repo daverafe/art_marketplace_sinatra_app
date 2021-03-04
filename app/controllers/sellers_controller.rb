@@ -16,7 +16,7 @@ class SellersController < ApplicationController
             redirect '/art_posts'
         else
             flash[:error] = "Incorrect signup input. Please try again."
-            redirect '/signup'
+            redirect '/sellers/signup'
         end
     end
 
@@ -36,7 +36,7 @@ class SellersController < ApplicationController
             redirect '/art_posts'
         else
             flash[:error] = "Invalid Login"
-            redirect '/login'
+            redirect '/sellers/login'
         end
     end
 
