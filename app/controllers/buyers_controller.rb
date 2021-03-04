@@ -32,6 +32,7 @@ class BuyersController < ApplicationController
         buyer = Buyer.find_by_username(params[:username])
         if buyer && buyer.authenticate(params[:password])
             session[:buyer_id] = buyer.id 
+            session[:cart] = []
             flash[:message] = "Login Successful!"
             redirect '/art_posts'
         else
@@ -41,16 +42,13 @@ class BuyersController < ApplicationController
     end
 
     get '/buyers/cart' do 
-        @art_post = ArtPost.find_by_buyer_id(session[:buyer_id])
-        @buyers_cart = current_buyer.cart << @art_post
+        @cart = session[:cart]
         erb :'buyers/cart'
     end
 
     post '/buyers/cart' do 
         @art_post = ArtPost.find_by_id(params[:cart_id])
-        current_buyer.cart << @art_post
-        @art_post.buyer_id = session[:buyer_id]
-        @art_post.save 
+        session[:cart] << @art_post
         flash[:message] = "Added to cart!"
         redirect '/art_posts' 
     end

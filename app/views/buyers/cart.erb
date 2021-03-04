@@ -1,13 +1,13 @@
 <h1>Your Cart</h1>
-<% @buyers_cart.each do |buyer_art| %>
+<% @cart.each do |cart_art| %>
     <div class="container">
         <div class="row">
             <div class="col-sm">
                 <div class="card" style="width: 18rem;">
-                    <img src="<%=buyer_art.img_url%>" class="card-img-top" alt="...">
+                    <img src="<%=cart_art.img_url%>" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title"><%=buyer_art.title%></h5>
-                        <a href="/art_posts/<%=buyer_art.id%>" class="btn btn-primary">Click for more info</a>
+                        <h5 class="card-title"><%=cart_art.title%></h5>
+                        <a href="/art_posts/<%=cart_art.id%>" class="btn btn-primary">Click for more info</a>
                     </div>
                 </div>   
             </div>
