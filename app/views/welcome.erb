@@ -2,7 +2,7 @@
 <h1 class="welcome">Welcome To Brooklyn Art Market!</h1>
 <h3 class="welcome">An Indy Art Shop</h3>
 
-<% if !seller_logged_in? || !buyer_logged_in? %>
+<% if !seller_logged_in? && !buyer_logged_in? %>
     <div id="landing" class="container">
         <div>
             <a href="/buyers/login"><button type="button" class="btn btn-primary">Login To Buy</button></a> 

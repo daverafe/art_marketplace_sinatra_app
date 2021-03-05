@@ -14,6 +14,9 @@ class BuyersController < ApplicationController
             session[:buyer_id] = buyer.id 
             flash[:message] = "Login Successful!"
             redirect '/art_posts'
+        elsif Buyer.find_by_email(params[:email])
+            flash[:message] = "Account already exists! Please Login"
+            redirect '/buyers/login'
         else
             flash[:error] = "Incorrect signup input. Please try again."
             redirect '/buyers/signup'
