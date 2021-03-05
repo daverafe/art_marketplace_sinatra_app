@@ -12,6 +12,7 @@ class BuyersController < ApplicationController
         buyer.save 
         if buyer.save 
             session[:buyer_id] = buyer.id 
+            session[:cart] = []
             flash[:message] = "Login Successful!"
             redirect '/art_posts'
         elsif Buyer.find_by_email(params[:email])
